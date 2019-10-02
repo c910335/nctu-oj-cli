@@ -1,0 +1,11 @@
+token: "find your token in cookie"
+group_id: "your group id"
+students:
+  - student id
+  - from
+  - e3
+problems:
+  - id: problem id
+    deadline: deadline in this format (2019-10-02 12:34:56)
+  - id: problem id
+    deadline: deadline

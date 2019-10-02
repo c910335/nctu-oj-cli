@@ -1,0 +1,23 @@
+name: nctu_oj_cli
+version: 0.1.0
+
+authors:
+  - Tatsiujin Chin <c910335@gmail.com>
+
+targets:
+  nctu_oj:
+    main: src/nctu_oj.cr
+
+crystal: 0.29.0
+
+license: MIT
+
+dependencies:
+  admiral:
+    github: jwaldrip/admiral.cr
+
+  kilt:
+    github: jeromegn/kilt
+
+  slang:
+    github: jeromegn/slang
