@@ -1,7 +1,7 @@
 token: "find your token in cookie"
 group_id: "your group id"
 students:
-  - student id
+  - student ids
   - from
   - e3
 problems:

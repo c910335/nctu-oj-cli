@@ -4,10 +4,22 @@ CLI for [NCTU OJ](https://oj.nctu.me)
 
 ## Installation
 
+1. Clone this repository.
+
 ```sh
 $ git clone https://github.com/c910335/nctu-oj-cli.git
 $ cd nctu-oj-cli
+```
+
+2. Compile it.
+
+```sh
 $ shards build
+```
+
+3. Edit the configuration file.
+
+```sh
 $ cp config.sample.yml config.yml
 $ vim config.yml
 ```
