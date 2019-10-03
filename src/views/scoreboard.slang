@@ -6,10 +6,10 @@ html
     link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     css:
-      thead tr th { position: sticky; top: 0 }
-      tbody tr th { position: sticky; left: 0; text-align: center; }
+      thead tr th { position: -webkit-sticky; position: sticky; top: 0; }
+      tbody tr th { position: -webkit-sticky; position: sticky; left: 0; text-align: center; }
       tbody { overflow-x: auto; white-space: nowrap; }
-      td { min-width: 100px }
+      td { min-width: 100px; }
   body
     .container.center-align
       h2 Scoreboard
