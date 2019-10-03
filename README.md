@@ -26,8 +26,19 @@ $ vim config.yml
 
 ## Usage
 
-```sh
-$ bin/nctu_oj scoreboard
+```
+$ bin/nctu_oj 
+Usage:
+  bin/nctu_oj [flags...] [arg...]
+
+CLI for NCTU OJ (https://oj.nctu.me)
+
+Flags:
+  --help      # Displays help for the current command.
+
+Subcommands:
+  codes       # Download all AC codes.
+  scoreboard  # Generate a scoreboard into scoreboard.html
 ```
 
 ## Contributing

@@ -1,7 +1,3 @@
-require "http/client"
-require "json"
-require "./models/*"
-
 class NCTU::OJ::Client
   VERSION = "0.1.0"
 
