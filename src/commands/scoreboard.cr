@@ -18,7 +18,7 @@ class NCTU::OJ::Scoreboard < Admiral::Command
         judges[user_id_to_i[s.user_id]][i] ||= s.score >= 100
       end
     end
-    totals = judges.map { |js| js.map { |j| j ? 1 : 0 }.sum }
+    totals = judges.map { |js| js.map { |j| j ? 1 : 0 }.sum } # ameba:disable Lint/UselessAssign
 
     puts "Outputing..."
 

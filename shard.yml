@@ -21,3 +21,8 @@ dependencies:
 
   slang:
     github: jeromegn/slang
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.10.1
