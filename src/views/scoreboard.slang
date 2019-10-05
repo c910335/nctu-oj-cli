@@ -37,4 +37,8 @@ html
                       i.material-icons clear
                 - else
                   td
-              td = totals[i]
+              td = student_totals[i]
+          tr
+            th.white Total
+            - problem_totals.each do |t|
+              td = t

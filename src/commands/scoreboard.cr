@@ -18,7 +18,9 @@ class NCTU::OJ::Scoreboard < Admiral::Command
         judges[user_id_to_i[s.user_id]][i] ||= s.score >= 100
       end
     end
-    totals = judges.map { |js| js.map { |j| j ? 1 : 0 }.sum } # ameba:disable Lint/UselessAssign
+
+    student_totals = judges.map { |js| js.map { |j| j ? 1 : 0 }.sum }                              # ameba:disable Lint/UselessAssign
+    problem_totals = Array(Int32).new(problems.size) { |i| judges.map { |js| js[i] ? 1 : 0 }.sum } # ameba:disable Lint/UselessAssign
 
     puts "Outputing..."
 
@@ -27,7 +29,6 @@ class NCTU::OJ::Scoreboard < Admiral::Command
                       else
                         "scoreboard.html"
                       end
-
     File.write(output_filename, Kilt.render("src/views/scoreboard.slang"))
   end
 end
