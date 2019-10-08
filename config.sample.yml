@@ -1,5 +1,10 @@
 token: "find your token in cookie"
 group_id: "your group id"
+invalids:
+  - student_id: plagiarist
+    problem_id: plagiarized problem
+  - student_id: another plagiarist
+    problem_id: another plagiarized problem
 students:
   - student ids
   - from

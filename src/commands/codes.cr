@@ -21,8 +21,7 @@ class NCTU::OJ::Codes < Admiral::Command
     Dir.mkdir_p(problem_id)
 
     submissions.each do |s|
-      name = users[user_id_to_i[s.user_id]].name
-      File.write("#{problem_id}/#{name}_#{s.id}.#{client.execute(s.execute_id).extension}", client.file(s.id))
+      File.write("#{problem_id}/#{user_id_to_name[s.user_id]}_#{s.id}.#{client.execute(s.execute_id).extension}", client.file(s.id))
     end
   end
 end

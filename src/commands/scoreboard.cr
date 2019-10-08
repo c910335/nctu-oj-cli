@@ -15,7 +15,7 @@ class NCTU::OJ::Scoreboard < Admiral::Command
     end
     multi_submissions.each_with_index do |ss, i|
       ss.each do |s|
-        judges[user_id_to_i[s.user_id]][i] ||= s.score >= 100
+        judges[user_id_to_i[s.user_id]][i] ||= s.score >= 100 && !invalids.includes?({user_id_to_name[s.user_id], s.problem_id})
       end
     end
 
