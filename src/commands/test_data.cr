@@ -47,7 +47,7 @@ class NCTU::OJ::TestData < Admiral::Command
         output,
         100
       )
-      print "i.."
+      print "#{i}.."
     end
   end
 end
