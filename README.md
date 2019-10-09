@@ -39,6 +39,7 @@ Flags:
 Subcommands:
   codes       # Download all AC codes.
   scoreboard  # Generate a scoreboard into scoreboard.html
+  testdata    # Upload test data
 ```
 
 ## Contributing
