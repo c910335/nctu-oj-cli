@@ -1,7 +1,7 @@
-module NCTU::OJ::Time
-  @@tf = ::Time::Format.new("%F %T", ::Time::Location.local)
+module NCTU::OJ::TimeConverter
+  @@tf = Time::Format.new("%F %T", Time::Location.local)
 
-  def self.from_yaml(ctx : YAML::ParseContext, node : YAML::Nodes::Node) : ::Time
+  def self.from_yaml(ctx : YAML::ParseContext, node : YAML::Nodes::Node) : Time
     unless node.is_a?(YAML::Nodes::Scalar)
       node.raise "Expected scalar, not #{node.class}"
     end
@@ -17,7 +17,7 @@ module NCTU::OJ::Time
     @@tf.parse(pull.read_string)
   end
 
-  def self.to_json(value : ::Time, json : JSON::Builder)
+  def self.to_json(value : Time, json : JSON::Builder)
     @@tf.format(value).to_json(json)
   end
 end

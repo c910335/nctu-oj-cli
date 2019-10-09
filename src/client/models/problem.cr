@@ -1,5 +1,3 @@
-require "json"
-
 class NCTU::OJ::Problem
   include JSON::Serializable
   property id : Int32
@@ -10,8 +8,8 @@ class NCTU::OJ::Problem
   property visible : Bool
   property group_read : Bool
   property group_write : Bool
-  @[JSON::Field(converter: NCTU::OJ::Time)]
-  property created_at : ::Time
-  @[JSON::Field(converter: NCTU::OJ::Time)]
-  property updated_at : ::Time
+  @[JSON::Field(converter: NCTU::OJ::TimeConverter)]
+  property created_at : Time
+  @[JSON::Field(converter: NCTU::OJ::TimeConverter)]
+  property updated_at : Time
 end

@@ -14,7 +14,7 @@ html
     .container.center-align
       h2 Scoreboard
       h3 Introduction to Algorithms 2019 Fall 
-      p Generated at #{::Time.local} by
+      p Generated at #{Time.local} by
         a target="_blank" href="https://github.com/c910335/nctu-oj-cli" GitHub
       table class="highlight centered"
         thead

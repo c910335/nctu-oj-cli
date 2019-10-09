@@ -24,11 +24,6 @@ class NCTU::OJ::Scoreboard < Admiral::Command
 
     puts "Outputing..."
 
-    output_filename = if o = flags.output_filename
-                        o
-                      else
-                        "scoreboard.html"
-                      end
-    File.write(output_filename, Kilt.render("src/views/scoreboard.slang"))
+    File.write(flags.output_filename, Kilt.render("src/views/scoreboard.slang"))
   end
 end

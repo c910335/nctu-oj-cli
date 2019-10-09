@@ -32,7 +32,7 @@ module NCTU::OJ::CommandHelper
     puts "Pulling submissions..."
     @multi_submissions = problems.map do |p|
       client.submissions(p.id).select! do |s|
-        f = s.created_at < p.deadline && user_id_to_i[s.user_id]?
+        f = s.created_at <= p.deadline && user_id_to_i[s.user_id]?
         if pass_only
           f && s.score >= 100
         else

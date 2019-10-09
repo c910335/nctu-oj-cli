@@ -1,4 +1,4 @@
-class Submission
+class NCTU::OJ::Submission
   include JSON::Serializable
   property id : Int32
   property user_id : Int32
@@ -9,8 +9,8 @@ class Submission
   property length : Int32
   property time_usage : Int32
   property memory_usage : Int32
-  @[JSON::Field(converter: NCTU::OJ::Time)]
-  property created_at : ::Time
-  @[JSON::Field(converter: NCTU::OJ::Time)]
-  property updated_at : ::Time
+  @[JSON::Field(converter: NCTU::OJ::TimeConverter)]
+  property created_at : Time
+  @[JSON::Field(converter: NCTU::OJ::TimeConverter)]
+  property updated_at : Time
 end
