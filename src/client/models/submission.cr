@@ -13,4 +13,8 @@ class NCTU::OJ::Submission
   property created_at : Time
   @[JSON::Field(converter: NCTU::OJ::TimeConverter)]
   property updated_at : Time
+
+  def ac?
+    @verdict_id == 10
+  end
 end

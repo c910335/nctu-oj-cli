@@ -2,6 +2,7 @@ class NCTU::OJ::Codes < Admiral::Command
   include CommandHelper
   define_help description: "Download all AC codes."
   define_flag problem_id : Int32, description: "Problem ID", short: "p"
+  define_flag students_only : Bool, description: "Only download student's codes", short: "s", default: false
 
   def run
     load_config
@@ -14,7 +15,7 @@ class NCTU::OJ::Codes < Admiral::Command
                  end.to_s
 
     pull_users
-    pull_submissions problem_id, pass_only: true
+    pull_submissions problem_id, flags.students_only, true
 
     puts "Pulling codes..."
 
