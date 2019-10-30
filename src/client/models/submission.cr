@@ -17,4 +17,9 @@ class NCTU::OJ::Submission
   def ac?
     @verdict_id == 10
   end
+
+  class Detailed < Submission
+    property filename : String
+    property ip : String
+  end
 end

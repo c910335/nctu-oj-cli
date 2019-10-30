@@ -36,6 +36,7 @@ module NCTU::OJ::CommandHelper
         f = s.created_at <= p.deadline
         f &&= user_id_to_i[s.user_id]? if student_only
         f &&= s.ac? if pass_only
+        f &&= p.ips!.includes?(client.submission(s.id).ip) unless p.ips.nil? || p.ips!.empty?
         f
       end
     end

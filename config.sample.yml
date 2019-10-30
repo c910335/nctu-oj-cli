@@ -1,5 +1,5 @@
-token: "find your token in cookie"
-group_id: "your group id"
+token: find your token in cookie
+group_id: your group id
 invalids:
   - student_id: plagiarist
     problem_id: plagiarized problem
@@ -14,3 +14,6 @@ problems:
     deadline: deadline in this format (2019-10-02 12:34:56)
   - id: problem id
     deadline: deadline
+    ips:
+      - a valid ip
+      - another valid ip

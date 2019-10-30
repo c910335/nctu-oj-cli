@@ -50,6 +50,10 @@ class NCTU::OJ::Client
     Array(Submission).from_json(JSON.parse(get("/submissions/", {"problem_id" => [problem_id.to_s], "group_id" => [@group_id], "count" => ["99999"]}).body)["msg"]["submissions"].as_a.select! { |s| s["score"].as_i? }.to_json)
   end
 
+  def submission(id)
+    Submission::Detailed.from_json(JSON.parse(get("/submissions/#{id}/").body)["msg"].to_json)
+  end
+
   def execute(id)
     return @executes[id] if @executes[id]?
     @executes[id] = Execute.from_json(JSON.parse(get("/executes/#{id}/").body)["msg"].to_json)
