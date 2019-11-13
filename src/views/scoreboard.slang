@@ -10,6 +10,7 @@ html
       tbody tr th { position: -webkit-sticky; position: sticky; left: 0; text-align: center; }
       tbody { overflow-x: auto; white-space: nowrap; }
       td { min-width: 100px; }
+      .container { width: 90%; }
   body
     .container.center-align
       h2 Scoreboard
