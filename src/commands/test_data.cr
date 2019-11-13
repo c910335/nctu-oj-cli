@@ -12,7 +12,7 @@ class NCTU::OJ::TestData < Admiral::Command
   define_flag reducer : String, description: "Reducer for score (must be min or sum)", default: "min", short: "r"
 
   def run
-    raise "Unknown reducer." unless ["min", "sum"].includes? flags.reducer
+    raise "Unknown reducer." unless {"min", "sum"}.includes? flags.reducer
 
     load_config
 
