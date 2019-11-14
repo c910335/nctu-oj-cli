@@ -11,6 +11,9 @@ html
       tbody { overflow-x: auto; white-space: nowrap; }
       td { min-width: 100px; }
       .container { width: 90%; }
+    - if refresh_period
+      javascript:
+        setTimeout(() => { location.reload() }, #{refresh_period * 60000});
   body
     .container.center-align
       h2 Scoreboard

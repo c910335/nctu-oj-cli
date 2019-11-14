@@ -4,6 +4,7 @@ class NCTU::OJ::Scoreboard < Admiral::Command
   define_flag output_filename : String, description: "Output filename", short: "o", default: "scoreboard.html"
   define_flag judge : String, description: "Judge type (must be pass or score)", short: "j", default: "pass"
   define_flag message : String, description: "The message on the top of scoreboard", short: "m"
+  define_flag refresh : Int64, description: "Auto refreshing period", short: "r"
 
   def run
     raise "Unknown judge type." unless {"pass", "score"}.includes? flags.judge
@@ -33,8 +34,9 @@ class NCTU::OJ::Scoreboard < Admiral::Command
 
     puts "Outputing..."
 
-    judge_type = flags.judge # ameba:disable Lint/UselessAssign
-    message = flags.message  # ameba:disable Lint/UselessAssign
+    judge_type = flags.judge       # ameba:disable Lint/UselessAssign
+    message = flags.message        # ameba:disable Lint/UselessAssign
+    refresh_period = flags.refresh # ameba:disable Lint/UselessAssign
     File.write(flags.output_filename, Kilt.render("src/views/scoreboard.slang"))
   end
 end
