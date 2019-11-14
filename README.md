@@ -40,7 +40,11 @@ Subcommands:
   codes       # Download all AC codes.
   scoreboard  # Generate a scoreboard into scoreboard.html
   testdata    # Upload test data
+```
 
+### Download Codes
+
+```
 $ bin/nctu_oj codes --help
 Usage:
   bin/nctu_oj codes [flags...] [arg...]
@@ -51,7 +55,11 @@ Flags:
   --help               # Displays help for the current command.
   --problem-id, -p     # Problem ID
   --students-only, -s  # Only download student's codes
+```
 
+### Generate Scodeboard
+
+```
 $ bin/nctu_oj scoreboard --help
 Usage:
   bin/nctu_oj scoreboard [flags...] [arg...]
@@ -64,7 +72,11 @@ Flags:
   --message, -m                              # The message on the top of scoreboard
   --output, -o (default: "scoreboard.html")  # Output filename
   --refresh, -r                              # Auto refreshing period
+```
 
+### Upload Test Data
+
+```
 $ bin/nctu_oj testdata --help
 Usage:
   bin/nctu_oj testdata [flags...] [arg...]
