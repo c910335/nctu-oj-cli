@@ -42,7 +42,7 @@ html
                           i.material-icons done
                         - else
                           = r
-                  - elsif r >= 60
+                  - elsif r >= 30
                     td.yellow.lighten-3
                       a target="_blank" href="https://oj.nctu.me/groups/#{group_id}/submissions/?count=99999&name=#{users[i].name}&problem_id=#{problems[j].id}"
                         - if judge_type == "pass"
