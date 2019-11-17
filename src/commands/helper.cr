@@ -4,6 +4,7 @@ module NCTU::OJ::CommandHelper
   property! problems : Array(Config::Problem)
   property! students : Array(String)
   property! group_id : Int32
+  property! title : String
   property! client : Client
   property! users : Array(User)
   property! user_id_to_i : Hash(Int32, Int32)
@@ -18,6 +19,7 @@ module NCTU::OJ::CommandHelper
     @problems = config.problems
     @students = config.students
     @group_id = config.group_id
+    @title = config.title
     @client = Client.new(config.token, group_id)
   end
 

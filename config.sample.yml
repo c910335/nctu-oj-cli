@@ -1,5 +1,6 @@
 token: find your token in cookie
 group_id: your group id
+title: title in scoreboard
 invalids:
   - student_id: plagiarist
     problem_id: plagiarized problem

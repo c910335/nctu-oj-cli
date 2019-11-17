@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title Introduction to Algorithms 2019 Fall Scoreboard
+    title = title
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
@@ -17,7 +17,7 @@ html
   body
     .container.center-align
       h2 Scoreboard
-      h3 Introduction to Algorithms 2019 Fall 
+      h3 = title
       p Generated at #{Time.local} by
         a target="_blank" href="https://github.com/c910335/nctu-oj-cli" GitHub
       - if message

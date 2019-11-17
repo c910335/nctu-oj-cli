@@ -29,6 +29,7 @@ class NCTU::OJ::Config
   YAML.mapping(
     token: String,
     group_id: Int32,
+    title: String,
     invalids: Array(Invalid),
     students: Array(String),
     problems: Array(Problem)
