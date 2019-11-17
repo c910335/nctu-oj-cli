@@ -29,12 +29,17 @@ class NCTU::OJ::Scoreboard < Admiral::Command
       end
     end
 
-    student_totals = judges.map { |js| js.map { |j| j.try &.>=(100) ? 1 : 0 }.sum }                              # ameba:disable Lint/UselessAssign
+    judge_type = flags.judge
+
+    student_totals = if judge_type == "pass" # ameba:disable Lint/UselessAssign
+                       judges.map { |js| js.map { |j| j.try &.>=(100) ? 1 : 0 }.sum }
+                     else
+                       judges.map { |js| js.map { |j| j || 0 }.sum }
+                     end
     problem_totals = Array(Int32).new(problems.size) { |i| judges.map { |js| js[i].try &.>=(100) ? 1 : 0 }.sum } # ameba:disable Lint/UselessAssign
 
     puts "Outputing..."
 
-    judge_type = flags.judge       # ameba:disable Lint/UselessAssign
     message = flags.message        # ameba:disable Lint/UselessAssign
     refresh_period = flags.refresh # ameba:disable Lint/UselessAssign
     File.write(flags.output, Kilt.render("src/views/scoreboard.slang"))
