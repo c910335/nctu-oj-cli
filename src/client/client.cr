@@ -56,7 +56,11 @@ class NCTU::OJ::Client
 
   def execute(id)
     return @executes[id] if @executes[id]?
-    @executes[id] = Execute.from_json(JSON.parse(get("/executes/#{id}/").body)["msg"].to_json)
+    begin
+      @executes[id] = Execute.from_json(JSON.parse(get("/executes/#{id}/").body)["msg"].to_json)
+    rescue JSON::MappingError
+      nil
+    end
   end
 
   def file(submission_id)

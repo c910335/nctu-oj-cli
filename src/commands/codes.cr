@@ -22,7 +22,9 @@ class NCTU::OJ::Codes < Admiral::Command
     Dir.mkdir_p(problem_id)
 
     submissions.each do |s|
-      File.write("#{problem_id}/#{user_id_to_name[s.user_id]}_#{s.id}.#{client.execute(s.execute_id).extension}", client.file(s.id))
+      if e = client.execute(s.execute_id)
+        File.write("#{problem_id}/#{user_id_to_name[s.user_id]}_#{s.id}.#{e.extension}", client.file(s.id))
+      end
     end
   end
 end
