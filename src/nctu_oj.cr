@@ -9,6 +9,7 @@ require "./client/models/*"
 require "./client/*"
 require "./commands/helper"
 require "./commands/*"
+require "./commands/test_data/*"
 
 class NCTU::OJ::MainCommand < Admiral::Command
   define_help description: "CLI for NCTU OJ (https://oj.nctu.me)"

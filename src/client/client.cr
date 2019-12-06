@@ -23,6 +23,14 @@ class NCTU::OJ::Client
     Array(TestDatum).from_json(JSON.parse(get("/problems/#{problem_id}/testdata/").body)["msg"].to_json)
   end
 
+  def input_file(test_data_id)
+    get("/testdata/#{test_data_id}/input/?download=true").body
+  end
+
+  def output_file(test_data_id)
+    get("/testdata/#{test_data_id}/output/?download=true").body
+  end
+
   def clear_test_data(problem_id)
     test_data(problem_id).each do |test_datum|
       delete("/testdata/#{test_datum.id}/")
