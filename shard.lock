@@ -1,18 +1,18 @@
-version: 1.0
+version: 2.0
 shards:
   admiral:
-    github: jwaldrip/admiral.cr
+    git: https://github.com/jwaldrip/admiral.cr.git
     version: 1.8.0
 
   ameba:
-    github: crystal-ameba/ameba
+    git: https://github.com/crystal-ameba/ameba.git
     version: 0.11.0
 
   kilt:
-    github: jeromegn/kilt
+    git: https://github.com/jeromegn/kilt.git
     version: 0.6.0
 
   slang:
-    github: jeromegn/slang
+    git: https://github.com/jeromegn/slang.git
     version: 1.7.1
 

@@ -2,7 +2,7 @@ class NCTU::OJ::Config
   class Problem
     YAML.mapping(
       id: Int32,
-      deadline: {type: Time, converter: TimeConverter},
+      deadline: {type: Time?, converter: TimeConverter},
       ips: Array(String)?
     )
 

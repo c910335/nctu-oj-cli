@@ -35,7 +35,7 @@ module NCTU::OJ::CommandHelper
     puts "Pulling submissions..."
     @multi_submissions = problems.map do |p|
       client.submissions(p.id).select! do |s|
-        f = s.created_at <= p.deadline
+        f = p.deadline.nil? || s.created_at <= p.deadline.not_nil!
         f &&= user_id_to_i[s.user_id]? if student_only
         f &&= s.ac? if pass_only
         f &&= p.ips!.includes?(client.submission(s.id).ip) unless p.ips.nil? || p.ips!.empty?
