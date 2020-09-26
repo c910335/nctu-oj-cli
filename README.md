@@ -1,6 +1,6 @@
 # NCTU OJ CLI
 
-CLI for [NCTU OJ](https://oj.nctu.me)
+CLI for [NCTU OJ](https://oj.nctu.edu.tw)
 
 ## Installation
 
@@ -31,7 +31,7 @@ $ bin/nctu_oj --help
 Usage:
   bin/nctu_oj [flags...] [arg...]
 
-CLI for NCTU OJ (https://oj.nctu.me)
+CLI for NCTU OJ (https://oj.nctu.edu.tw)
 
 Flags:
   --help      # Displays help for the current command.

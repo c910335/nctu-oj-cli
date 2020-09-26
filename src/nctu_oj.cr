@@ -12,7 +12,7 @@ require "./commands/*"
 require "./commands/test_data/*"
 
 class NCTU::OJ::MainCommand < Admiral::Command
-  define_help description: "CLI for NCTU OJ (https://oj.nctu.me)"
+  define_help description: "CLI for NCTU OJ (https://oj.nctu.edu.tw)"
   register_sub_command scoreboard, Scoreboard
   register_sub_command codes, Codes
   register_sub_command testdata, TestData

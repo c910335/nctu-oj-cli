@@ -27,7 +27,7 @@ html
           td
           - problems.each do |p|
             th.white
-              a target="_blank" href="https://oj.nctu.me/problems/#{p.id}/" = p.id
+              a target="_blank" href="https://oj.nctu.edu.tw/problems/#{p.id}/" = p.id
           th.white Total
         tbody
           - judges.each_with_index do |judge, i|
@@ -37,21 +37,21 @@ html
                 - if r
                   - if r >= 100
                     td.green.lighten-3
-                      a target="_blank" href="https://oj.nctu.me/groups/#{group_id}/submissions/?count=99999&name=#{users[i].name}&problem_id=#{problems[j].id}"
+                      a target="_blank" href="https://oj.nctu.edu.tw/groups/#{group_id}/submissions/?count=99999&name=#{users[i].name}&problem_id=#{problems[j].id}"
                         - if judge_type == "pass"
                           i.material-icons done
                         - else
                           = r
                   - elsif r >= 30
                     td.yellow.lighten-3
-                      a target="_blank" href="https://oj.nctu.me/groups/#{group_id}/submissions/?count=99999&name=#{users[i].name}&problem_id=#{problems[j].id}"
+                      a target="_blank" href="https://oj.nctu.edu.tw/groups/#{group_id}/submissions/?count=99999&name=#{users[i].name}&problem_id=#{problems[j].id}"
                         - if judge_type == "pass"
                           i.material-icons clear
                         - else
                           = r
                   - else
                     td.red.lighten-3
-                      a target="_blank" href="https://oj.nctu.me/groups/#{group_id}/submissions/?count=99999&name=#{users[i].name}&problem_id=#{problems[j].id}"
+                      a target="_blank" href="https://oj.nctu.edu.tw/groups/#{group_id}/submissions/?count=99999&name=#{users[i].name}&problem_id=#{problems[j].id}"
                         - if judge_type == "pass"
                           i.material-icons clear
                         - else

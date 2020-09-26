@@ -3,7 +3,7 @@ class NCTU::OJ::Client
 
   @cookie : String
   @group_id : String
-  @client = HTTP::Client.new("api.oj.nctu.me", tls: true)
+  @client = HTTP::Client.new("api.oj.nctu.edu.tw", tls: true)
   @executes = {} of Int32 => Execute
 
   def initialize(token, group_id)
