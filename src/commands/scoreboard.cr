@@ -6,7 +6,7 @@ class NCTU::OJ::Scoreboard < Admiral::Command
   define_flag message : String, description: "The message on the top of scoreboard", short: "m"
   define_flag refresh : Int64, description: "Auto refreshing period", short: "r"
 
-  def run
+  def run # ameba:disable Metrics/CyclomaticComplexity
     raise "Unknown judge type." unless {"pass", "score"}.includes? flags.judge
 
     load_config
@@ -31,12 +31,19 @@ class NCTU::OJ::Scoreboard < Admiral::Command
 
     judge_type = flags.judge
 
-    student_totals = if judge_type == "pass" # ameba:disable Lint/UselessAssign
+    student_totals = if judge_type == "pass"
                        judges.map { |js| js.map { |j| j.try &.>=(100) ? 1 : 0 }.sum }
                      else
                        judges.map { |js| js.map { |j| j || 0 }.sum }
                      end
-    problem_totals = Array(Int32).new(problems.size) { |i| judges.map { |js| js[i].try &.>=(100) ? 1 : 0 }.sum } # ameba:disable Lint/UselessAssign
+    problem_acs = Array(Int32).new(problems.size) { |i| judges.map { |js| js[i].try &.>=(100) ? 1 : 0 }.sum }
+    problem_acs << problem_acs.sum
+    unless judge_type == "pass"
+      problem_maxes = Array(Int32).new(problems.size) { |i| judges.map { |js| js[i] || 0 }.max } + [student_totals.max] # ameba:disable Lint/UselessAssign
+      problem_means = Array(Float64).new(problems.size) { |i| judges.map { |js| js[i] || 0 }.sum / judges.size } + [student_totals.sum / student_totals.size]
+      problem_medians = Array(Int32).new(problems.size) { |i| judges.map { |js| js[i] || 0 }.sort![judges.size // 2] } + [student_totals.sort[student_totals.size // 2]]                                                                           # ameba:disable Lint/UselessAssign
+      problem_sds = Array(Float64).new(problems.size) { |i| Math.sqrt(judges.map { |js| ((js[i] || 0) - problem_means[i])**2 }.sum / judges.size) } + [Math.sqrt(student_totals.map { |j| (j - problem_means[-1])**2 }.sum / student_totals.size)] # ameba:disable Lint/UselessAssign
+    end
 
     puts "Outputing..."
 

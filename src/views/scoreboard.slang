@@ -60,6 +60,23 @@ html
                   td
               td = student_totals[i]
           tr
-            th.white Total
-            - problem_totals.each do |t|
-              td = t
+            th.white AC
+            - problem_acs.each do |a|
+              td = a
+          - unless judge_type == "pass"
+            tr
+              th.white Max
+              - problem_maxes.not_nil!.each do |m|
+                td = m
+            tr
+              th.white Mean
+              - problem_means.not_nil!.each do |m|
+                td = "%.2f" % m
+            tr
+              th.white Median
+              - problem_medians.not_nil!.each do |m|
+                td = m
+            tr
+              th.white Standard Deviation
+              - problem_sds.not_nil!.each do |s|
+                td = "%.2f" % s
