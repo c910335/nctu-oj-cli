@@ -54,12 +54,22 @@ class NCTU::OJ::Client
     post("/testdata/", io, builder.content_type)
   end
 
-  def submissions(problem_id)
-    Array(Submission).from_json(JSON.parse(get("/submissions/", {"problem_id" => [problem_id.to_s], "group_id" => [@group_id], "count" => ["99999"]}).body)["msg"]["submissions"].as_a.select! { |s| s["score"].as_i? }.to_json)
+  def submissions(problem_id, verdict_name = "")
+    params = {"problem_id" => [problem_id.to_s], "group_id" => [@group_id], "count" => ["999999"]}
+    if (verdict = Submission::Verdict.parse?(verdict_name)) && !verdict.all_verdict?
+      params["verdict_id"] = [verdict.value.to_s]
+    elsif !verdict_name.empty? && verdict != Submission::Verdict::AllVerdict
+      raise "Verdict not found."
+    end
+    Array(Submission).from_json(JSON.parse(get("/submissions/", params).body)["msg"]["submissions"].to_json)
   end
 
   def submission(id)
     Submission::Detailed.from_json(JSON.parse(get("/submissions/#{id}/").body)["msg"].to_json)
+  end
+
+  def rejudge(id)
+    post("/submissions/#{id}/rejudge/")
   end
 
   def execute(id)
@@ -84,7 +94,7 @@ class NCTU::OJ::Client
     @client.get(path, HTTP::Headers{"Cookie" => @cookie})
   end
 
-  def post(path : String, body : Hash | IO, content_type : String = nil)
+  def post(path : String, body : Hash(String, Array(String)) | IO = IO::Memory.new, content_type : String? = nil)
     headers = HTTP::Headers{"Cookie" => @cookie}
     headers.add("Content-Type", content_type) if content_type
     case body

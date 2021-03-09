@@ -16,6 +16,7 @@ class NCTU::OJ::MainCommand < Admiral::Command
   register_sub_command scoreboard, Scoreboard
   register_sub_command codes, Codes
   register_sub_command testdata, TestData
+  register_sub_command rejudge, Rejudge
 
   def run
     puts help

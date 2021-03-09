@@ -15,7 +15,7 @@ class NCTU::OJ::Codes < Admiral::Command
                  end.to_s
 
     pull_users
-    pull_submissions problem_id, flags.students_only, true
+    pull_submissions problem_id, student_only: flags.students_only, pass_only: true
 
     puts "Pulling codes..."
 
