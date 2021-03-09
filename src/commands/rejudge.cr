@@ -6,7 +6,6 @@ class NCTU::OJ::Rejudge < Admiral::Command
   define_flag students_only : Bool, description: "Only rejudge student's submissions", short: "s", default: false
 
   def run
-    verdict = flags.verdict || "dummy"
     load_config
     pull_users
 

@@ -8,7 +8,7 @@ targets:
   nctu_oj:
     main: src/nctu_oj.cr
 
-crystal: 0.35.1
+crystal: 0.36.1
 
 license: MIT
 
@@ -23,9 +23,9 @@ dependencies:
 
   slang:
     github: jeromegn/slang
-    version: ~> 1.7.1
+    version: ~> 1.7.2
 
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 0.13.2
+    version: ~> 0.14.0

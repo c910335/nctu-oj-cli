@@ -76,7 +76,7 @@ class NCTU::OJ::Client
     return @executes[id] if @executes[id]?
     begin
       @executes[id] = Execute.from_json(JSON.parse(get("/executes/#{id}/").body)["msg"].to_json)
-    rescue JSON::MappingError
+    rescue JSON::SerializableError
       nil
     end
   end

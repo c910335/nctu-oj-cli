@@ -46,6 +46,6 @@ module NCTU::OJ::CommandHelper
   end
 
   def pull_submissions(problem_id : String | Int32, verdict : String = "", student_only : Bool = true, judged_only : Bool = true, pass_only : Bool = false)
-    @submissions = pull_submissions(self.problems.select { |p| p.id == problem_id.to_i }, verdict: verdict, student_only: student_only, judged_only: judged_only, pass_only: pass_only).first
+    @submissions = pull_submissions(self.problems.select(&.id.==(problem_id.to_i)), verdict: verdict, student_only: student_only, judged_only: judged_only, pass_only: pass_only).first
   end
 end
