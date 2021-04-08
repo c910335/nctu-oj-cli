@@ -14,6 +14,7 @@ class NCTU::OJ::Config
     property id : Int32
     @[YAML::Field(converter: NCTU::OJ::TimeConverter)]
     property deadline : Time?
+    property weight : Float64?
     property ips : Array(String)?
 
     def ips!

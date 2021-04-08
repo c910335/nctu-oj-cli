@@ -28,6 +28,8 @@ html
           - problems.each do |p|
             th.white
               a target="_blank" href="https://oj.nctu.edu.tw/problems/#{p.id}/" = p.id
+              - if weight = p.weight
+                sub = "#{(weight * 100).to_i}%"
           th.white Total
         tbody
           - judges.each_with_index do |judge, i|

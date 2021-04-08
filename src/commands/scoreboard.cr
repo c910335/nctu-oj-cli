@@ -34,7 +34,7 @@ class NCTU::OJ::Scoreboard < Admiral::Command
     student_totals = if judge_type == "pass"
                        judges.map(&.sum { |j| j.try &.>=(100) ? 1 : 0 })
                      else
-                       judges.map(&.sum { |j| j || 0 })
+                       judges.map { |js| js.zip(problems).sum { |j, p| j.try(&.*(p.weight || 1)) || 0 } }
                      end
     problem_acs = Array(Int32).new(problems.size) { |i| judges.sum { |js| js[i].try &.>=(100) ? 1 : 0 } }
     problem_acs << problem_acs.sum

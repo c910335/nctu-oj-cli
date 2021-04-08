@@ -8,18 +8,18 @@ targets:
   nctu_oj:
     main: src/nctu_oj.cr
 
-crystal: 0.36.1
+crystal: 1.0.0
 
 license: MIT
 
 dependencies:
   admiral:
     github: jwaldrip/admiral.cr
-    version: ~> 1.11.2
+    version: ~> 1.11.4
 
   kilt:
     github: jeromegn/kilt
-    version: ~> 0.6.0
+    version: ~> 0.6.1
 
   slang:
     github: jeromegn/slang
@@ -28,4 +28,4 @@ dependencies:
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 0.14.0
+    version: ~> 0.14.2
