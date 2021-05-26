@@ -1,5 +1,7 @@
 # NCTU OJ CLI
 
+[![Crystal CI](https://github.com/c910335/nctu-oj-cli/actions/workflows/crystal.yml/badge.svg)](https://github.com/c910335/nctu-oj-cli/actions/workflows/crystal.yml)
+
 CLI for [NCTU OJ](https://oj.nctu.edu.tw)
 
 ## Installation

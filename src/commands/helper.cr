@@ -19,7 +19,7 @@ module NCTU::OJ::CommandHelper
     @invalids = config.invalids
     @problems = config.problems
     @students = config.students
-    @aliases = config.aliases.try(&.map { |aliases| { aliases.from, aliases.to } }.to_h)
+    @aliases = config.aliases.try(&.map { |aliases| {aliases.from, aliases.to} }.to_h)
     @group_id = config.group_id
     @title = config.title
     @client = Client.new(config.token, group_id)
