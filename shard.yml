@@ -23,9 +23,9 @@ dependencies:
 
   slang:
     github: jeromegn/slang
-    version: ~> 1.7.2
+    version: ~> 1.7.3
 
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 0.14.2
+    version: ~> 0.14.3
