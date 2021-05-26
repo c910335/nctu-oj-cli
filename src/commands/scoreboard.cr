@@ -20,7 +20,7 @@ class NCTU::OJ::Scoreboard < Admiral::Command
     end
     multi_submissions.each_with_index do |ss, i|
       ss.each do |s|
-        if invalids.includes?({user_id_to_name[s.user_id], s.problem_id})
+        if invalids.try(&.includes?({user_id_to_name[s.user_id], s.problem_id}))
           judges[user_id_to_i[s.user_id]][i] = 0
         else
           j = judges[user_id_to_i[s.user_id]][i]

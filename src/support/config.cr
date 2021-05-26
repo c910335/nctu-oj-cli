@@ -4,9 +4,17 @@ class NCTU::OJ::Config
   property token : String
   property group_id : Int32
   property title : String
-  property invalids : Array(Invalid)
+  property invalids : Array(Invalid)?
   property students : Array(String)
+  property aliases : Array(Alias)?
   property problems : Array(Problem)
+
+  class Alias
+    include YAML::Serializable
+
+    property from : String
+    property to : String
+  end
 
   class Problem
     include YAML::Serializable

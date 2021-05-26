@@ -12,7 +12,7 @@ class NCTU::OJ::Client
   end
 
   def users
-    Array(User).from_json(JSON.parse(get("/groups/#{@group_id}/users/", {"count" => ["99999"]}).body)["msg"].to_json)
+    Array(User).from_json(JSON.parse(get("/groups/#{@group_id}/users/", {"count" => ["99999"]}).body)["msg"].to_json).tap(&.reject!(&.id.==(310)))
   end
 
   def problems

@@ -5,6 +5,7 @@ html
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta charset="utf-8"
     css:
       thead tr th { position: -webkit-sticky; position: sticky; top: 0; }
       tbody tr th { position: -webkit-sticky; position: sticky; left: 0; text-align: center; }
@@ -34,7 +35,7 @@ html
         tbody
           - judges.each_with_index do |judge, i|
             tr
-              th.white = users[i].name
+              th.white = aliases.try(&.[users[i].name]?) || users[i].name
               - judge.each_with_index do |r, j|
                 - if r
                   - if r >= 100
