@@ -34,13 +34,13 @@ class NCTU::OJ::Scoreboard < Admiral::Command
     student_totals = if judge_type == "pass"
                        judges.map(&.sum { |j| j.try &.>=(100) ? 1 : 0 })
                      else
-                       judges.map { |js| js.zip(problems).sum { |j, p| j.try(&.*(p.weight || 1)) || 0 } }
+                       judges.map { |js| js.zip(problems).sum { |j, p| j.try(&.*(p.weight || 1).round(2)) || 0 } }
                      end
     problem_acs = Array(Int32).new(problems.size) { |i| judges.sum { |js| js[i].try &.>=(100) ? 1 : 0 } }
     problem_acs << problem_acs.sum
     unless judge_type == "pass"
       problem_maxes = Array(Int32).new(problems.size) { |i| judges.map { |js| js[i] || 0 }.max } + [student_totals.max] # ameba:disable Lint/UselessAssign
-      problem_means = Array(Float64).new(problems.size) { |i| judges.sum { |js| js[i] || 0 } / judges.size } + [student_totals.sum / student_totals.size]
+      problem_means = Array(Float64).new(problems.size) { |i| (judges.sum { |js| js[i] || 0 } / judges.size).round(2) } + [(student_totals.sum / student_totals.size).round(2)]
       problem_medians = Array(Int32).new(problems.size) { |i| judges.map { |js| js[i] || 0 }.sort![judges.size // 2] } + [student_totals.sort[student_totals.size // 2]]                                                                   # ameba:disable Lint/UselessAssign
       problem_sds = Array(Float64).new(problems.size) { |i| Math.sqrt(judges.sum { |js| ((js[i] || 0) - problem_means[i])**2 } / judges.size) } + [Math.sqrt(student_totals.sum { |j| (j - problem_means[-1])**2 } / student_totals.size)] # ameba:disable Lint/UselessAssign
     end
